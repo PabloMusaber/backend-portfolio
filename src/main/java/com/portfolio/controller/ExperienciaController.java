@@ -22,7 +22,7 @@ public class ExperienciaController {
     private IExperienciaService expServ;
     
     @PostMapping("/experiencia/new")
-    public void agregarPersona (@RequestBody Experiencia exp){
+    public void agregarExperiencia (@RequestBody Experiencia exp){
        expServ.crearExperiencia(exp);
     }
     
