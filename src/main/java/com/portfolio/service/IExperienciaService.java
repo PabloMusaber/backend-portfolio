@@ -9,5 +9,5 @@ public interface IExperienciaService {
     public void crearExperiencia (Experiencia exp);
     public void borrarExperiencia (Long id);
     public Experiencia buscarExperiencia (Long id);
-    public Experiencia editarExperiencia (Experiencia exp);
+    public Experiencia editarExperiencia (Experiencia exp, Long id);
 }
