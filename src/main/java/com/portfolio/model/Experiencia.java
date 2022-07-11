@@ -25,6 +25,5 @@ public class Experiencia {
     private String company_exp;
     @NotNull
     private String description_exp;
-    
     private String imagen;
 }

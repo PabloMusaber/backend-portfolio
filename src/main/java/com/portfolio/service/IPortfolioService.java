@@ -9,5 +9,5 @@ public interface IPortfolioService {
     public void crearPortfolio (Portfolio port);
     public void borrarPortfolio (Long id);
     public Portfolio buscarPortfolio (Long id);
-    public Portfolio editarPortfolio (Portfolio port);
+    public Portfolio editarPortfolio (Portfolio port, Long id);
 }

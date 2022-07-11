@@ -21,8 +21,10 @@ public class Portfolio {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id_portfolio;
+    
     private String name;
     private String title;
     private String introduction;
     private String footer;
+    private String imagen;
 }

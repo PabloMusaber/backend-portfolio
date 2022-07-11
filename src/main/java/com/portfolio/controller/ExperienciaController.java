@@ -58,25 +58,23 @@ public class ExperienciaController {
     }
     
     @PutMapping("/experiencia/editar/{id}")
-    public Experiencia editarExperiencia (@RequestParam("imagen")MultipartFile imagen,
+    public Experiencia editarExperiencia (@RequestParam(required=false) MultipartFile imagen,
                                           @ModelAttribute("exp") Experiencia exp,
                                           BindingResult result,
                                           @PathVariable Long id){
         
         Experiencia expOriginal = expServ.buscarExperiencia(id);
-        if(!imagen.isEmpty()){
+        if(imagen!=null && !imagen.isEmpty()){
             String rutaAbsoluta = "C:\\Users\\Pablo\\Desktop\\Argentina Programa\\Módulo 3 - Desarrollo Front End Dinámico\\Angular Porftfolio\\Portfolio\\src\\assets\\img";
             try{
                 byte[] bytesImg = imagen.getBytes();
                 Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
                 Files.write(rutaCompleta, bytesImg);
                 exp.setImagen(imagen.getOriginalFilename());
-                //expServ.editarExperiencia(exp, id);
             }catch (IOException e){
             }
         }else{
             exp.setImagen(expOriginal.getImagen());
-            //expServ.editarExperiencia(exp, id);
         }
         
         if("".equals(exp.getCompany_exp())){

@@ -10,5 +10,5 @@ public interface IHabilidadService {
     public void crearHabilidad (Habilidad habi);
     public void borrarHabilidad (Long id);
     public Habilidad buscarHabilidad (Long id);
-    public Habilidad editarHabilidad (Habilidad habi);
+    public Habilidad editarHabilidad (Habilidad habi, Long id);
 }

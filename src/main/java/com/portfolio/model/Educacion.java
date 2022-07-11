@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +22,11 @@ public class Educacion {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id_edu;
+    @NotNull
     private String company_edu;
+    @NotNull
     private String title_edu;
+    @NotNull
     private String anio_edu;
+    private String imagen;
 }

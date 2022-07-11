@@ -34,13 +34,13 @@ public class PortfolioService implements IPortfolioService {
     }
     
     @Override
-    public Portfolio editarPortfolio(Portfolio port){
-        Long id = port.getId_portfolio();
+    public Portfolio editarPortfolio(Portfolio port, Long id){
         Portfolio portEdited = portRepo.findById(id).get();
         portEdited.setName(port.getName());
         portEdited.setTitle(port.getTitle());
         portEdited.setIntroduction(port.getIntroduction());
         portEdited.setFooter(port.getFooter());
+        portEdited.setImagen(port.getImagen());
         return portRepo.save(portEdited);        
     }    
 }

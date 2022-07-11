@@ -34,8 +34,7 @@ public class HabilidadService implements IHabilidadService{
     }
     
     @Override
-    public Habilidad editarHabilidad(Habilidad habi){
-        Long id = habi.getId_skill();
+    public Habilidad editarHabilidad(Habilidad habi, Long id){
         Habilidad habiEdited = habiRepo.findById(id).get();
         habiEdited.setName_skill(habi.getName_skill());
         habiEdited.setPercent(habi.getPercent());

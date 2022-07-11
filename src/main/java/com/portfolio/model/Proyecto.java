@@ -23,4 +23,8 @@ public class Proyecto {
     private Long id_project;
     private String title_project;
     private String description_project;    
+    private String link;
+    private String github;
+    private String imagen;
+    
 }

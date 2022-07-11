@@ -34,11 +34,13 @@ public class ProyectoService implements IProyectoService{
     }
     
     @Override
-    public Proyecto editarProyecto(Proyecto proye){
-        Long id = proye.getId_project();
+    public Proyecto editarProyecto(Proyecto proye, Long id){
         Proyecto proyEdited = proyRepo.findById(id).get();
         proyEdited.setTitle_project(proye.getTitle_project());
         proyEdited.setDescription_project(proye.getDescription_project());
+        proyEdited.setGithub(proye.getGithub());
+        proyEdited.setLink(proye.getLink());
+        proyEdited.setImagen(proye.getImagen());
         return proyRepo.save(proyEdited);
     }
 }
