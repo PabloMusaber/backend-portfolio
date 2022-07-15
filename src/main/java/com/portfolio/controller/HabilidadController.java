@@ -1,14 +1,11 @@
-
 package com.portfolio.controller;
 
 import com.portfolio.model.Habilidad;
 import com.portfolio.service.IHabilidadService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -50,11 +47,11 @@ public class HabilidadController {
         
         Habilidad habiOriginal = habiServ.buscarHabilidad(id);
         
-        if("".equals(habi.getName_skill())){
-            habi.setName_skill(habiOriginal.getName_skill());
+        if("".equals(habi.getNombre())){
+            habi.setNombre(habiOriginal.getNombre());
         }
-        if(habi.getPercent() == 0){
-            habi.setPercent(habiOriginal.getPercent());
+        if(habi.getPorcentaje() == 0){
+            habi.setPorcentaje(habiOriginal.getPorcentaje());
         }
         
         return habiServ.editarHabilidad(habi, id);

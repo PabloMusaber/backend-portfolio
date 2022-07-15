@@ -1,4 +1,3 @@
-
 package com.portfolio.model;
 
 import javax.persistence.Entity;
@@ -20,10 +19,10 @@ import lombok.Setter;
 public class Experiencia {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id_exp;
+    private Long id;
     @NotNull
-    private String company_exp;
+    private String empresa;
     @NotNull
-    private String description_exp;
+    private String descripcion;
     private String imagen;
 }

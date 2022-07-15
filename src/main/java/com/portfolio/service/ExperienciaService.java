@@ -37,8 +37,8 @@ public class ExperienciaService implements IExperienciaService{
     @Override
     public Experiencia editarExperiencia(Experiencia exp, Long id){
         Experiencia expEdited = expRepo.findById(id).get();
-        expEdited.setCompany_exp(exp.getCompany_exp());
-        expEdited.setDescription_exp(exp.getDescription_exp());
+        expEdited.setEmpresa(exp.getEmpresa());
+        expEdited.setDescripcion(exp.getDescripcion());
         expEdited.setImagen(exp.getImagen());
         return expRepo.save(expEdited);
     }

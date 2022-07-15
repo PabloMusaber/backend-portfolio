@@ -1,4 +1,3 @@
-
 package com.portfolio.controller;
 
 import com.portfolio.model.Portfolio;
@@ -35,7 +34,7 @@ public class PortfolioController {
                                   BindingResult result){
        
         if(!imagen.isEmpty()){
-            String rutaAbsoluta = "C:\\Users\\Pablo\\Desktop\\Argentina Programa\\Módulo 3 - Desarrollo Front End Dinámico\\Angular Porftfolio\\Portfolio\\src\\assets\\img";
+            String rutaAbsoluta = "C:\\Users\\Pablo\\Desktop\\Portfolio\\src\\assets\\img";
             try{
                 byte[] bytesImg = imagen.getBytes();
                 Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
@@ -66,29 +65,27 @@ public class PortfolioController {
         
         Portfolio portOriginal = portServ.buscarPortfolio(Long.valueOf(1));
         
-        
-            if(imagen!=null && !imagen.isEmpty()){
-                String rutaAbsoluta = "C:\\Users\\Pablo\\Desktop\\Argentina Programa\\Módulo 3 - Desarrollo Front End Dinámico\\Angular Porftfolio\\Portfolio\\src\\assets\\img";
-                try{
-                    byte[] bytesImg = imagen.getBytes();
-                    Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
-                    Files.write(rutaCompleta, bytesImg);
-                    port.setImagen(imagen.getOriginalFilename());
-                }catch (IOException e){
-                }
-            }else{
-                port.setImagen(portOriginal.getImagen());
+        if(imagen!=null && !imagen.isEmpty()){
+            String rutaAbsoluta = "C:\\Users\\Pablo\\Desktop\\Portfolio\\src\\assets\\img";
+            try{
+                byte[] bytesImg = imagen.getBytes();
+                Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
+                Files.write(rutaCompleta, bytesImg);
+                port.setImagen(imagen.getOriginalFilename());
+            }catch (IOException e){
             }
-        
-        
-        if("".equals(port.getName())){
-            port.setName(portOriginal.getName());
+        }else{
+            port.setImagen(portOriginal.getImagen());
         }
-        if("".equals(port.getTitle())){
-            port.setTitle(portOriginal.getTitle());
+        
+        if("".equals(port.getNombre())){
+            port.setNombre(portOriginal.getNombre());
         }
-        if("".equals(port.getIntroduction())){
-            port.setIntroduction(portOriginal.getIntroduction());
+        if("".equals(port.getTitulo())){
+            port.setTitulo(portOriginal.getTitulo());
+        }
+        if("".equals(port.getIntroduccion())){
+            port.setIntroduccion(portOriginal.getIntroduccion());
         }
         if("".equals(port.getFooter())){
             port.setFooter(portOriginal.getFooter());
@@ -108,7 +105,7 @@ public class PortfolioController {
         Portfolio portOriginal = portServ.buscarPortfolio(id);
         
         if(imagen!=null && !imagen.isEmpty()){
-            String rutaAbsoluta = "C:\\Users\\Pablo\\Desktop\\Argentina Programa\\Módulo 3 - Desarrollo Front End Dinámico\\Angular Porftfolio\\Portfolio\\src\\assets\\img";
+            String rutaAbsoluta = "C:\\Users\\Pablo\\Desktop\\Portfolio\\src\\assets\\img";
             try{
                 byte[] bytesImg = imagen.getBytes();
                 Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
@@ -120,14 +117,14 @@ public class PortfolioController {
             port.setImagen(portOriginal.getImagen());
         }
         
-        if("".equals(port.getName())){
-            port.setName(portOriginal.getName());
+        if("".equals(port.getNombre())){
+            port.setNombre(portOriginal.getNombre());
         }
-        if("".equals(port.getTitle())){
-            port.setTitle(portOriginal.getTitle());
+        if("".equals(port.getTitulo())){
+            port.setTitulo(portOriginal.getTitulo());
         }
-        if("".equals(port.getIntroduction())){
-            port.setIntroduction(portOriginal.getIntroduction());
+        if("".equals(port.getIntroduccion())){
+            port.setIntroduccion(portOriginal.getIntroduccion());
         }
         if("".equals(port.getFooter())){
             port.setFooter(portOriginal.getFooter());

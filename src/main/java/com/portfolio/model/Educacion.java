@@ -1,4 +1,3 @@
-
 package com.portfolio.model;
 
 import javax.persistence.Entity;
@@ -21,12 +20,12 @@ public class Educacion {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id_edu;
+    private Long id;
     @NotNull
-    private String company_edu;
+    private String institucion;
     @NotNull
-    private String title_edu;
+    private String titulo;
     @NotNull
-    private String anio_edu;
+    private String anio;
     private String imagen;
 }

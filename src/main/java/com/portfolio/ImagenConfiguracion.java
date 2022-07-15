@@ -10,7 +10,7 @@ public class ImagenConfiguracion implements WebMvcConfigurer{
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         WebMvcConfigurer.super.addResourceHandlers(registry); 
-        registry.addResourceHandler("/img/**").addResourceLocations("file:/C:/Users/Pablo/Desktop/Argentina Programa/Módulo 3 - Desarrollo Front End Dinámico/Angular Porftfolio/Portfolio/src/assets/img");
+        registry.addResourceHandler("/img/**").addResourceLocations("file:/C:/Users/Pablo/Desktop/Portfolio/src/assets/img");
     }
     
     

@@ -1,4 +1,3 @@
-
 package com.portfolio.model;
 
 import javax.persistence.Entity;
@@ -19,7 +18,7 @@ import lombok.Setter;
 public class Habilidad {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id_skill;
-    private String name_skill;
-    private int percent;
+    private Long id;
+    private String nombre;
+    private int porcentaje;
 }

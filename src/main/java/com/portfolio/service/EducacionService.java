@@ -36,9 +36,9 @@ public class EducacionService implements IEducacionService{
     @Override
     public Educacion editarEducacion(Educacion edu, Long id){
         Educacion eduEdited = eduRepo.findById(id).get();
-        eduEdited.setAnio_edu(edu.getAnio_edu());
-        eduEdited.setCompany_edu(edu.getCompany_edu());
-        eduEdited.setTitle_edu(edu.getTitle_edu());
+        eduEdited.setAnio(edu.getAnio());
+        eduEdited.setInstitucion(edu.getInstitucion());
+        eduEdited.setTitulo(edu.getTitulo());
         eduEdited.setImagen(edu.getImagen());
         return eduRepo.save(eduEdited);
     }

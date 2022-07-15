@@ -1,4 +1,3 @@
-
 package com.portfolio.controller;
 
 import com.portfolio.model.Proyecto;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,7 +32,7 @@ public class ProyectoController {
                                  @Valid @ModelAttribute("proy") Proyecto proy,
                                  BindingResult result){
         if(!imagen.isEmpty()){
-            String rutaAbsoluta = "C:\\Users\\Pablo\\Desktop\\Argentina Programa\\Módulo 3 - Desarrollo Front End Dinámico\\Angular Porftfolio\\Portfolio\\src\\assets\\img";
+            String rutaAbsoluta = "C:\\Users\\Pablo\\Desktop\\Portfolio\\src\\assets\\img";
             try{
                 byte[] bytesImg = imagen.getBytes();
                 Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
@@ -65,7 +63,7 @@ public class ProyectoController {
         
         Proyecto proyOriginal = proyServ.buscarProyecto(id);
         if(imagen!=null && !imagen.isEmpty()){
-            String rutaAbsoluta = "C:\\Users\\Pablo\\Desktop\\Argentina Programa\\Módulo 3 - Desarrollo Front End Dinámico\\Angular Porftfolio\\Portfolio\\src\\assets\\img";
+            String rutaAbsoluta = "C:\\Users\\Pablo\\Desktop\\Portfolio\\src\\assets\\img";
             try{
                 byte[] bytesImg = imagen.getBytes();
                 Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
@@ -77,12 +75,12 @@ public class ProyectoController {
             proy.setImagen(proyOriginal.getImagen());
         }
         
-        if("".equals(proy.getTitle_project())){
-            proy.setTitle_project(proyOriginal.getTitle_project());
+        if("".equals(proy.getNombre())){
+            proy.setNombre(proyOriginal.getNombre());
         }
         
-        if("".equals(proy.getDescription_project())){
-            proy.setDescription_project(proyOriginal.getDescription_project());
+        if("".equals(proy.getDescripcion())){
+            proy.setDescripcion(proyOriginal.getDescripcion());
         }
         
         if("".equals(proy.getGithub())){
@@ -96,6 +94,5 @@ public class ProyectoController {
         return proyServ.editarProyecto(proy, id);
         
     }
-    
     
 }

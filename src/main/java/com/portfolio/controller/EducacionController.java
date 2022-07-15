@@ -1,4 +1,3 @@
-
 package com.portfolio.controller;
 
 import com.portfolio.model.Educacion;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,7 +33,7 @@ public class EducacionController {
                                   BindingResult result){
         
         if(!imagen.isEmpty()){
-            String rutaAbsoluta = "C:\\Users\\Pablo\\Desktop\\Argentina Programa\\Módulo 3 - Desarrollo Front End Dinámico\\Angular Porftfolio\\Portfolio\\src\\assets\\img";
+            String rutaAbsoluta = "C:\\Users\\Pablo\\Desktop\\Portfolio\\src\\assets\\img";
             try{
                 byte[] bytesImg = imagen.getBytes();
                 Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
@@ -67,7 +65,7 @@ public class EducacionController {
         
         Educacion eduOriginal = eduServ.buscarEducacion(id);
         if(imagen!=null && !imagen.isEmpty()){
-            String rutaAbsoluta = "C:\\Users\\Pablo\\Desktop\\Argentina Programa\\Módulo 3 - Desarrollo Front End Dinámico\\Angular Porftfolio\\Portfolio\\src\\assets\\img";
+            String rutaAbsoluta = "C:\\Users\\Pablo\\Desktop\\Portfolio\\src\\assets\\img";
             try{
                 byte[] bytesImg = imagen.getBytes();
                 Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
@@ -79,16 +77,16 @@ public class EducacionController {
             edu.setImagen(eduOriginal.getImagen());
         }
         
-        if("".equals(edu.getAnio_edu())){
-            edu.setAnio_edu(eduOriginal.getAnio_edu());
+        if("".equals(edu.getAnio())){
+            edu.setAnio(eduOriginal.getAnio());
         }
         
-        if("".equals(edu.getCompany_edu())){
-            edu.setCompany_edu(eduOriginal.getCompany_edu());
+        if("".equals(edu.getInstitucion())){
+            edu.setInstitucion(eduOriginal.getInstitucion());
         }
         
-        if("".equals(edu.getTitle_edu())){
-            edu.setTitle_edu(eduOriginal.getTitle_edu());
+        if("".equals(edu.getTitulo())){
+            edu.setTitulo(eduOriginal.getTitulo());
         }
         
         return eduServ.editarEducacion(edu, id);

@@ -1,4 +1,3 @@
-
 package com.portfolio.model;
 
 import javax.persistence.Entity;
@@ -20,9 +19,9 @@ public class Proyecto {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id_project;
-    private String title_project;
-    private String description_project;    
+    private Long id;
+    private String nombre;
+    private String descripcion;    
     private String link;
     private String github;
     private String imagen;

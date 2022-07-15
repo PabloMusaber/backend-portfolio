@@ -36,9 +36,9 @@ public class PortfolioService implements IPortfolioService {
     @Override
     public Portfolio editarPortfolio(Portfolio port, Long id){
         Portfolio portEdited = portRepo.findById(id).get();
-        portEdited.setName(port.getName());
-        portEdited.setTitle(port.getTitle());
-        portEdited.setIntroduction(port.getIntroduction());
+        portEdited.setNombre(port.getNombre());
+        portEdited.setTitulo(port.getTitulo());
+        portEdited.setIntroduccion(port.getIntroduccion());
         portEdited.setFooter(port.getFooter());
         portEdited.setImagen(port.getImagen());
         return portRepo.save(portEdited);        

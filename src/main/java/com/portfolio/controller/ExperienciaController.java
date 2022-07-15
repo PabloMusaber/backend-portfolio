@@ -1,4 +1,3 @@
-
 package com.portfolio.controller;
 
 import com.portfolio.model.Experiencia;
@@ -34,7 +33,7 @@ public class ExperienciaController {
                                     BindingResult result){
         
         if(!imagen.isEmpty()){
-            String rutaAbsoluta = "C:\\Users\\Pablo\\Desktop\\Argentina Programa\\Módulo 3 - Desarrollo Front End Dinámico\\Angular Porftfolio\\Portfolio\\src\\assets\\img";
+            String rutaAbsoluta = "C:\\Users\\Pablo\\Desktop\\Portfolio\\src\\assets\\img";
             try{
                 byte[] bytesImg = imagen.getBytes();
                 Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
@@ -65,7 +64,7 @@ public class ExperienciaController {
         
         Experiencia expOriginal = expServ.buscarExperiencia(id);
         if(imagen!=null && !imagen.isEmpty()){
-            String rutaAbsoluta = "C:\\Users\\Pablo\\Desktop\\Argentina Programa\\Módulo 3 - Desarrollo Front End Dinámico\\Angular Porftfolio\\Portfolio\\src\\assets\\img";
+            String rutaAbsoluta = "C:\\Users\\Pablo\\Desktop\\Portfolio\\src\\assets\\img";
             try{
                 byte[] bytesImg = imagen.getBytes();
                 Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
@@ -77,12 +76,12 @@ public class ExperienciaController {
             exp.setImagen(expOriginal.getImagen());
         }
         
-        if("".equals(exp.getCompany_exp())){
-            exp.setCompany_exp(expOriginal.getCompany_exp());
+        if("".equals(exp.getEmpresa())){
+            exp.setEmpresa(expOriginal.getEmpresa());
         }
         
-        if("".equals(exp.getDescription_exp())){
-            exp.setDescription_exp(expOriginal.getDescription_exp());
+        if("".equals(exp.getDescripcion())){
+            exp.setDescripcion(expOriginal.getDescripcion());
         }
         
         return expServ.editarExperiencia(exp, id);
