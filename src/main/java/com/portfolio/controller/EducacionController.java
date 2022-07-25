@@ -2,24 +2,16 @@ package com.portfolio.controller;
 
 import com.portfolio.model.Educacion;
 import com.portfolio.service.IEducacionService;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
-import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 public class EducacionController {
@@ -28,21 +20,7 @@ public class EducacionController {
     private IEducacionService eduServ;
     
     @PostMapping("/educacion/new")
-    public void agregarEducacion (@RequestParam("imagen")MultipartFile imagen,
-                                  @Valid @ModelAttribute("edu") Educacion edu,
-                                  BindingResult result){
-        
-        if(!imagen.isEmpty()){
-            String rutaAbsoluta = "C:\\Users\\Pablo\\Desktop\\Portfolio\\src\\assets\\img";
-            try{
-                byte[] bytesImg = imagen.getBytes();
-                Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
-                Files.write(rutaCompleta, bytesImg);
-                edu.setImagen(imagen.getOriginalFilename());
-            }catch (IOException e){
-            }
-        }
-        
+    public void agregarEducacion (@RequestBody Educacion edu){
         eduServ.crearEducacion(edu);
     }
     
@@ -58,35 +36,22 @@ public class EducacionController {
     }
     
     @PutMapping("/educacion/editar/{id}")
-    public Educacion editarEducacion (@RequestParam(required = false) MultipartFile imagen,
-                                      @ModelAttribute("edu") Educacion edu,
-                                      BindingResult result,
+    public Educacion editarEducacion (@RequestBody Educacion edu,
                                       @PathVariable Long id){
         
         Educacion eduOriginal = eduServ.buscarEducacion(id);
-        if(imagen!=null && !imagen.isEmpty()){
-            String rutaAbsoluta = "C:\\Users\\Pablo\\Desktop\\Portfolio\\src\\assets\\img";
-            try{
-                byte[] bytesImg = imagen.getBytes();
-                Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
-                Files.write(rutaCompleta, bytesImg);
-                edu.setImagen(imagen.getOriginalFilename());
-            }catch (IOException e){
-            }
-        }else{
-            edu.setImagen(eduOriginal.getImagen());
-        }
-        
+                
         if("".equals(edu.getAnio())){
             edu.setAnio(eduOriginal.getAnio());
         }
-        
         if("".equals(edu.getInstitucion())){
             edu.setInstitucion(eduOriginal.getInstitucion());
         }
-        
         if("".equals(edu.getTitulo())){
             edu.setTitulo(eduOriginal.getTitulo());
+        }
+        if("".equals(edu.getImagen())){
+            edu.setImagen(eduOriginal.getImagen());
         }
         
         return eduServ.editarEducacion(edu, id);
