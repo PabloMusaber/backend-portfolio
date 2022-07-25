@@ -1,0 +1,12 @@
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.url = jdbc:postgresql://localhost:5432/portfolio_postgres?useSSL=false&serverTimezone=UTC
+spring.datasource.username=postgres
+spring.datasource.password=123
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQL10Dialect
+
+#security
+jwt.secret = secret
+jwt.expiration = 3600000
+
+#Imagenes
+spring.servlet.multipart.max-file-size=15MB
